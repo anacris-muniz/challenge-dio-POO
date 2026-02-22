@@ -1,36 +1,23 @@
 package br.com.dio.challenge.domain;
 
-public class Activities {
+public class Activities  extends  Content{
 
     //Atributos
 
-    //título
-   private String title;
-    //descrição
-    private String description;
     // carga horaria
     private int workload;
+
+    @Override
+    public double calculateXp() {
+        return XP_STANDARD * workload;
+    }
+    //(xp padrão * cargahoraria)
 
     //construtor sem argumento
 
     public Activities() {
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public int getWorkload() {
         return workload;
@@ -43,9 +30,11 @@ public class Activities {
     @Override
     public String toString() {
         return "Activities{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                "title='" + getTitle() + '\'' +
+                ", description='" + getDescription() + '\'' +
                 ", workload=" + workload +
                 '}';
     }
+
+
 }

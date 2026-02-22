@@ -2,31 +2,17 @@ package br.com.dio.challenge.domain;
 
 import java.time.LocalDate;
 
-public class Mentoring {
-    //título
-    private String title;
-    //descrição
-    private String description;
-    // para trabalhar com datas
+public class Mentoring extends Content{
+
     private LocalDate data;
 
+    //metodo calcular XP
+    @Override
+    public double calculateXp() {
+        return XP_STANDARD + 20d;
+    }
+
     public Mentoring() {
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public LocalDate getData() {
@@ -40,9 +26,11 @@ public class Mentoring {
     @Override
     public String toString() {
         return "Mentoring{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                "title='" + getTitle() + '\'' +
+                ", description='" + getDescription() + '\'' +
                 ", data=" + data +
                 '}';
     }
+
+
 }
